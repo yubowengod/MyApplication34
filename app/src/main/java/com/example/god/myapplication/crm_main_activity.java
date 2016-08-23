@@ -30,6 +30,7 @@ import org.w3c.dom.Text;
  */
 public class crm_main_activity extends Activity {
 
+    private String GitHub=null;
     private class SpinnerAdapter extends ArrayAdapter<String> {
         Context context;
         String[] items = new String[]{};
