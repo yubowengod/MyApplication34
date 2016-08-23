@@ -81,6 +81,7 @@ public class crm_main_activity extends Activity {
     }
 
 
+    private TextView sp_text;
 
     private Spinner provinceSpinner = null;  //省级（省、直辖市）
     private Spinner citySpinner = null;     //地级市
@@ -263,6 +264,7 @@ public class crm_main_activity extends Activity {
 
 
         setSpinner();
+        sp_text = (TextView) findViewById(R.id.sp_text);
 
         txt_crm_home = (TextView) findViewById(R.id.txt_crm_home);
         txt_crm_reset_xianlu = (TextView) findViewById(R.id.txt_crm_reset_xianlu);
@@ -336,7 +338,7 @@ public class crm_main_activity extends Activity {
         citySpinner.setAdapter(cityAdapter1);
         citySpinner.setSelection(0,true);  //默认选中第0个
 
-        SpinnerAdapter countyAdapter1=new SpinnerAdapter(crm_main_activity.this,android.R.layout.simple_spinner_item,county[0][0]);
+        final SpinnerAdapter countyAdapter1=new SpinnerAdapter(crm_main_activity.this,android.R.layout.simple_spinner_item,county[0][0]);
 //        countyAdapter = new ArrayAdapter<String>(sanji_activity.this,
 //                android.R.layout.simple_spinner_item, county[3][0]);
         countySpinner.setAdapter(countyAdapter1);
@@ -380,10 +382,27 @@ public class crm_main_activity extends Activity {
 //                countyAdapter = new ArrayAdapter<String>(sanji_activity.this,
 //                        android.R.layout.simple_spinner_item, county[provincePosition][position]);
                 countySpinner.setAdapter(countyAdapter);
+
+
+
             }
+
             @Override
             public void onNothingSelected(AdapterView<?> arg0)
             {
+
+            }
+        });
+
+//        citySpinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener()
+        countySpinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+            @Override
+            public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
+                sp_text.setText(countySpinner.getSelectedItem().toString());
+            }
+
+            @Override
+            public void onNothingSelected(AdapterView<?> parent) {
 
             }
         });
