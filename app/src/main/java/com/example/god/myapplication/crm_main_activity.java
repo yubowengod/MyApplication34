@@ -92,7 +92,7 @@ public class crm_main_activity extends Activity {
 
 
     //省级选项值
-    private String[] province = new String[] {"1工位",	"2工位",	"3工位",	"4工位"};
+    private String[] province = new String[] {"1——工位",	"2——工位",	"3——工位",	"4——工位"};
 
 //    private String[] province_m = new String[] {"1工位-m",	"2工位",	"3工位",	"4工位"};
 //    private String[] province_mp = new String[] {"1工位-mp",	"2工位",	"3工位",	"4工位"};
